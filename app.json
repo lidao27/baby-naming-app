@@ -1,0 +1,40 @@
+{
+  "expo": {
+    "name": "宝宝起名",
+    "slug": "baby-naming-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#4CAF50"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.babynaming.app",
+      "buildNumber": "1",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "用于计算出生地的真太阳时"
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icon.png",
+        "backgroundColor": "#4CAF50"
+      },
+      "package": "com.babynaming.app",
+      "versionCode": 1,
+      "permissions": []
+    },
+    "web": {
+      "favicon": "./assets/icon.png"
+    },
+    "description": "基于八字计算的智能宝宝起名应用，帮助父母为宝宝选择吉祥美好的名字",
+    "githubUrl": ""
+  }
+}
