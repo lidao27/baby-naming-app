@@ -35,6 +35,12 @@
       "favicon": "./assets/icon.png"
     },
     "description": "基于八字计算的智能宝宝起名应用，帮助父母为宝宝选择吉祥美好的名字",
-    "githubUrl": ""
+    "githubUrl": "",
+    "extra": {
+      "eas": {
+        "projectId": "6b9219e5-c920-4fb1-b521-5bc3c4f622ed"
+      }
+    },
+    "owner": "ficolee"
   }
 }
