@@ -66,6 +66,16 @@ const HomeScreen = ({ navigation }) => {
     }
   };
 
+  // 获取当前日期
+  const getCurrentDate = () => {
+    return birthDate ? new Date(birthDate) : new Date();
+  };
+
+  // 获取当前时间
+  const getCurrentTime = () => {
+    return birthTime ? new Date(`1970-01-01T${birthTime}`) : new Date();
+  };
+
   // 验证表单
   const validateForm = () => {
     if (!lastName) {
@@ -152,7 +162,31 @@ const HomeScreen = ({ navigation }) => {
           <Text style={styles.label}>出生日期</Text>
           <TouchableOpacity
             style={styles.pickerButton}
-            onPress={() => setShowDatePicker(true)}
+            onPress={() => {
+              if (Platform.OS === 'ios') {
+                setShowDatePicker(true);
+              } else {
+                // Android使用文本输入方式
+                Alert.alert(
+                  '输入出生日期',
+                  '请输入格式：YYYY-MM-DD',
+                  [
+                    {
+                      text: '取消',
+                      style: 'cancel',
+                    },
+                    {
+                      text: '确定',
+                      onPress: () => {
+                        // 这里需要实现文本输入逻辑
+                        // 暂时先显示日期选择器
+                        setShowDatePicker(true);
+                      },
+                    },
+                  ]
+                );
+              }
+            }}
           >
             <Text style={styles.pickerText}>
               {birthDate || '请选择出生日期'}
@@ -160,9 +194,9 @@ const HomeScreen = ({ navigation }) => {
           </TouchableOpacity>
           {showDatePicker && (
             <DateTimePicker
-              value={birthDate ? new Date(birthDate) : new Date()}
+              value={getCurrentDate()}
               mode="date"
-              display={Platform.OS === 'ios' ? 'spinner' : 'default'}
+              display="spinner"
               onChange={onDateChange}
             />
           )}
@@ -173,7 +207,31 @@ const HomeScreen = ({ navigation }) => {
           <Text style={styles.label}>出生时间</Text>
           <TouchableOpacity
             style={styles.pickerButton}
-            onPress={() => setShowTimePicker(true)}
+            onPress={() => {
+              if (Platform.OS === 'ios') {
+                setShowTimePicker(true);
+              } else {
+                // Android使用文本输入方式
+                Alert.alert(
+                  '输入出生时间',
+                  '请输入格式：HH:mm (24小时制)',
+                  [
+                    {
+                      text: '取消',
+                      style: 'cancel',
+                    },
+                    {
+                      text: '确定',
+                      onPress: () => {
+                        // 这里需要实现文本输入逻辑
+                        // 暂时先显示时间选择器
+                        setShowTimePicker(true);
+                      },
+                    },
+                  ]
+                );
+              }
+            }}
           >
             <Text style={styles.pickerText}>
               {birthTime || '请选择出生时间'}
@@ -181,9 +239,9 @@ const HomeScreen = ({ navigation }) => {
           </TouchableOpacity>
           {showTimePicker && (
             <DateTimePicker
-              value={birthTime ? new Date(`1970-01-01T${birthTime}`) : new Date()}
+              value={getCurrentTime()}
               mode="time"
-              display={Platform.OS === 'ios' ? 'spinner' : 'default'}
+              display="spinner"
               onChange={onTimeChange}
             />
           )}
