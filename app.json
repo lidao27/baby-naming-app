@@ -11,9 +11,9 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.babynaming.app",
-      "buildNumber": "1",
       "infoPlist": {
-        "NSLocationWhenInUseUsageDescription": "用于计算出生地的真太阳时"
+        "NSLocationWhenInUseUsageDescription": "用于计算出生地的真太阳时",
+        "ITSAppUsesNonExemptEncryption": false
       }
     },
     "android": {
